@@ -7,11 +7,11 @@ import java.util.LinkedList;
  * @author Juan Sebastian Martinez Serna
  * @author Diana Maria del Pilar Socha Diaz
  */
-public class ECIMaps {
+public class Mapa {
     
     private final LinkedList<Nodo> nodos;
 
-    public ECIMaps() {
+    public Mapa() {
         this.nodos = new LinkedList<>();
     }
     
