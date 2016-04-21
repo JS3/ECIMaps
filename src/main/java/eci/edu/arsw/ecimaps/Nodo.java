@@ -1,6 +1,6 @@
 package eci.edu.arsw.ecimaps;
 
-import java.util.LinkedList;
+import java.util.HashMap;
 
 /**
  *
@@ -12,12 +12,16 @@ public class Nodo {
     private String nombre;
     private String descripcion;
     private Posicion posicion;
-    private final LinkedList<Nodo> nodosHijos;
+    private final int idNodo;
+    private int numeroHijos;
+    private final HashMap<Integer, Nodo> nodosHijos;
 
-    public Nodo(String nombre, Posicion posicion) {
+    public Nodo(String nombre, Posicion posicion, int idNodo) {
         this.nombre = nombre;
         this.posicion = posicion;
-        this.nodosHijos = new LinkedList<>();
+        this.nodosHijos = new HashMap<>();
+        this.numeroHijos = 0;
+        this.idNodo = idNodo;
     }
 
     public String getNombre() {
@@ -44,4 +48,19 @@ public class Nodo {
         this.posicion = posicion;
     }
 
+    public int getIdNodo() {
+        return idNodo;
+    }
+
+    public int getNumeroHijos() {
+        return numeroHijos;
+    }
+    
+    public void agregarNodoHijo(Nodo nodo) {
+        this.numeroHijos++;
+    }
+    
+    public void eliminarNodoHijo(int idNodoHijo) {
+        
+    }
 }
