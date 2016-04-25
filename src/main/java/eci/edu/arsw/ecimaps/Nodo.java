@@ -1,6 +1,10 @@
 package eci.edu.arsw.ecimaps;
 
 import java.util.HashMap;
+import java.util.Map;
+import org.w3c.dom.Attr;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 /**
  *
@@ -8,6 +12,10 @@ import java.util.HashMap;
  * @author Diana Maria del Pilar Socha Diaz
  */
 public class Nodo {
+    
+    public static final String ELEMENT_XML = "Nodo";
+    public static final String ATTR_NOMBRE_XML = "nombre";
+    public static final String ATTR_DESCRIPCION_XML = "descripcion";
     
     private String nombre;
     private String descripcion;
@@ -62,5 +70,29 @@ public class Nodo {
     
     public void eliminarNodoHijo(int idNodoHijo) {
         
+    }
+    
+    public Element toXML(Document document){
+        Element root = document.createElement(Nodo.ELEMENT_XML);
+        
+        Attr attrNombre = document.createAttribute(Nodo.ATTR_NOMBRE_XML);
+        attrNombre.setValue(this.getNombre());
+        root.setAttributeNode(attrNombre);
+        
+        Attr attrDescripcion = document.createAttribute(Nodo.ATTR_DESCRIPCION_XML);
+        attrDescripcion.setValue(this.getDescripcion());
+        root.setAttributeNode(attrDescripcion);
+        
+        Element ePosicion = this.getPosicion().toXML(document);
+        
+        root.appendChild(ePosicion);
+        
+        for (Map.Entry<Integer, Nodo> entry : nodosHijos.entrySet()) {
+            Nodo value = entry.getValue();
+            Element eHijo = value.toXML(document);
+            root.appendChild(eHijo);
+        }
+        
+        return root;
     }
 }

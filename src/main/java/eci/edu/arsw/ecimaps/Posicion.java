@@ -1,11 +1,19 @@
 package eci.edu.arsw.ecimaps;
 
+import org.w3c.dom.Attr;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
 /**
  *
  * @author Juan Sebastian Martinez Serna
  * @author Diana Maria del Pilar Socha Diaz
  */
 public class Posicion {
+    
+    public static final String ELEMENT_XML = "Posicion";
+    public static final String ATTR_X_XML = "x";
+    public static final String ATTR_Y_XML = "y";
     
     private int x;
     private int y;
@@ -60,5 +68,18 @@ public class Posicion {
         return true;
     }
     
+    public Element toXML(Document document){
+        Element element = document.createElement(Posicion.ELEMENT_XML);
+        
+        Attr attrX = document.createAttribute(Posicion.ATTR_X_XML);
+        attrX.setValue(String.valueOf(this.getX()));
+        element.setAttributeNode(attrX);
+        
+        Attr attrY = document.createAttribute(Posicion.ATTR_Y_XML);
+        attrY.setValue(String.valueOf(this.getY()));
+        element.setAttributeNode(attrY);
+        
+        return element;
+    }
     
 }
