@@ -6,7 +6,10 @@ package eci.edu.arsw.services;
  * @author Diana Maria del Pilar Socha Diaz
  */
 public interface Exportar {
-    
+    /**
+     * Genera un archivo XML con la configuracion del mapa mental
+     * @param path nombre del archivo con su ruta
+     */
     public void exportarXML(String path);
     
 }

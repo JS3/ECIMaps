@@ -1,7 +1,5 @@
 package eci.edu.arsw.controllers;
 
-import edu.eci.cosw.samples.model.Blueprint;
-import edu.eci.cosw.services.ServicesFacade;
 import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;

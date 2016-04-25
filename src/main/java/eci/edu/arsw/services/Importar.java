@@ -7,5 +7,9 @@ package eci.edu.arsw.services;
  */
 public interface Importar {
     
+    /**
+     * 
+     * @param path 
+     */
     public void importarXML(String path);
 }
