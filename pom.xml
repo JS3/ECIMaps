@@ -36,6 +36,13 @@
             <artifactId>spring-web</artifactId>
             <version>4.2.5.RELEASE</version>
         </dependency>
+        <!--
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-catalina</artifactId>
+            <version>8.5.0</version>
+        </dependency>
+        -->
     </dependencies>
 
     <build>
