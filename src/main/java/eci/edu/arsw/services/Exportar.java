@@ -7,6 +7,6 @@ package eci.edu.arsw.services;
  */
 public interface Exportar {
     
-    //public 
+    public void exportarXML();
     
 }
