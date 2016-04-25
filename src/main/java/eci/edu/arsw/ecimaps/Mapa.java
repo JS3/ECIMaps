@@ -36,7 +36,7 @@ public class Mapa implements Exportar, Importar {
     @Override
     public void exportarXML(String path) {
         try {
-
+            //http://www.tutorialspoint.com/java_xml/java_dom_create_document.htm
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.newDocument();
