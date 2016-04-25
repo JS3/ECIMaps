@@ -7,7 +7,8 @@ package eci.edu.arsw.controllers;
 
 /**
  *
- * @author PILAR
+ * @author Juan Sebastian Martinez Serna
+ * @author Diana Maria del Pilar Socha Diaz
  */
 public class EcimapController {
     

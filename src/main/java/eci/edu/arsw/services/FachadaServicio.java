@@ -7,8 +7,8 @@ package eci.edu.arsw.services;
 
 /**
  *
- * @author Juan Sebastián Martínez Serna
- *         Diana María del Pilar Socha
+ * @author Juan Sebastian Martinez Serna
+ * @author Diana Maria del Pilar Socha Diaz
  */
 public class FachadaServicio {
     
