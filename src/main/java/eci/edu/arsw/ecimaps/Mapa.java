@@ -5,6 +5,7 @@ import eci.edu.arsw.services.Importar;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.json.Json;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -13,6 +14,7 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import org.json.JSONObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -64,5 +66,21 @@ public class Mapa implements Exportar, Importar {
     @Override
     public void importarXML(String path) {
 
+    }
+
+    /*
+     *  http://www.tutorialspoint.com/json/json_java_example.htm
+     */
+    @Override
+    public void exportarJSON(String path) {
+        
+        JSONObject json = new JSONObject();
+        
+            
+    }
+
+    @Override
+    public void importatJSON(String path) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
