@@ -1,33 +1,33 @@
-<mapa>
+<Mapa>
     <Nodo nombre = "Mapa mental" descripcion = "Nodo raiz">
 
         <Posicion x = "30" y = "50">
         </Posicion>
 
-        <Nodo nombre = "nodo1" descripcion = "hijo 1">
+        <Nodo nombre = "nodo 1" descripcion = "hijo 1">
 
             <Posicion x = "70" y = "70">
             </Posicion>
 
         </Nodo>
 
-        <Nodo nombre = "nodoDos" descripcion = "hijo Dos">
+        <Nodo nombre = "nodo 2" descripcion = "hijo 2">
 
             <Posicion x = "90" y = "100">
             </Posicion>
 
-            <Nodo nombre = "nododos.1" descripcion = "hijo dos.1">
+            <Nodo nombre = "nodo 2.1" descripcion = "hijo 2.1">
 
                 <Posicion x = "110" y = "130">
                 </Posicion>
             </Nodo>
 
-            <Nodo nombre = "nododos.dos" descripcion = "hijo dos.dos">
+            <Nodo nombre = "nodo 2.2" descripcion = "hijo 2.2">
 
                 <Posicion x = "130" y = "140">
                 </Posicion>
 
-                <Nodo nombre = "nododos.dos.1" descripcion = "hijo dos.dos.1">
+                <Nodo nombre = "nodo 2.2.1" descripcion = "hijo 2.2.1">
 
                     <Posicion x = "150" y = "160">
                     </Posicion>
@@ -36,8 +36,6 @@
             </Nodo>
         </Nodo>
     </Nodo>
-</mapa>
+</Mapa>
      
                 
-                
-            

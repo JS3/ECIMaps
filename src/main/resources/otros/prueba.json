@@ -1,0 +1,55 @@
+{
+    "Mapa": {
+        "Nombre": "Mapa mental",
+        "Descripcion": "Nodo raiz",
+        "Posicion": {
+            "x": 30,
+            "y": 50
+        },
+        "Hijos": [
+            {
+                "Nombre": "Nodo 1",
+                "Descripcion": "Hijo 1",
+                "Posicion": {
+                    "x": 70,
+                    "y": 70
+                }
+            }, {
+                "Nombre": "Nodo 2",
+                "Descripcion": "Hijo 2",
+                "Posicion": {
+                    "x": 90,
+                    "y": 100
+                },
+                "Hijos": [
+                    {
+                        "Nombre": "Nodo 2.1",
+                        "Descripcion": "Hijo 2.1",
+                        "Posicion": {
+                            "x": 110,
+                            "y": 130
+                        }
+                    }, {
+                        "Nombre": "Nodo 2.2",
+                        "Descripcion": "Hijo 2.2",
+                        "Posicion": {
+                            "x": 130,
+                            "y": 140
+                        },
+                        "Hijos": [
+                            {
+                                "Nombre": "Nodo 2.2.1",
+                                "Descripcion": "Hijo 2.2.1",
+                                "Posicion": {
+                                    "x": 150,
+                                    "y": 160
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+
