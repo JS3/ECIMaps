@@ -34,12 +34,12 @@ public class JsonTest {
     }
 
     /**
-     * Test of endhJson method, of class Json.
+     * Test of endJson method, of class Json.
      */
     @Test
-    public void testEndhJson() {
+    public void testEndJson() {
         Json instance = new Json();
-        instance.endhJson();
+        instance.endJson();
         String result = "{}";
         
         assertEquals(instance.toString(), result);
@@ -54,7 +54,7 @@ public class JsonTest {
         String value = "Hola";
         Json instance = new Json();
         instance.add(name, value);
-        instance.endhJson();
+        instance.endJson();
         String result = "{\"Saludo\":\"Hola\"}";
         assertEquals(instance.toString(), result);
     }
@@ -68,7 +68,7 @@ public class JsonTest {
         Integer value = 25;
         Json instance = new Json();
         instance.add(name, value);
-        instance.endhJson();
+        instance.endJson();
         String result = "{\"Edad\":25}";
         assertEquals(instance.toString(), result);
     }
@@ -82,7 +82,7 @@ public class JsonTest {
         Double value = 70.2;
         Json instance = new Json();
         instance.add(name, value);
-        instance.endhJson();
+        instance.endJson();
         String result = "{\"Peso\":70.2}";
         assertEquals(instance.toString(), result);
     }
@@ -95,7 +95,7 @@ public class JsonTest {
         String name = "Nulo";
         Json instance = new Json();
         instance.addNullValue(name);
-        instance.endhJson();
+        instance.endJson();
         String result = "{\"Nulo\":null}";
         assertEquals(instance.toString(), result);
     }
@@ -110,8 +110,8 @@ public class JsonTest {
         instance.add(name);
         String x = "x";
         instance.addNullValue(x);
-        instance.endhJson();
-        instance.endhJson();
+        instance.endJson();
+        instance.endJson();
         String result = "{\"Posicion\":{\"x\":null}}";
         assertEquals(instance.toString(), result);
     }
@@ -121,11 +121,23 @@ public class JsonTest {
      */
     @Test
     public void testAddArrayJson() {
-        String name = "";
+        String name = "Hijos";
         Json instance = new Json();
         instance.addArrayJson(name);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String nulo = "Nulo";
+        instance.startJson();
+        instance.addNullValue(nulo);
+        instance.addOtherValue();
+        String peso = "Peso";
+        Double pesos = 1.25;
+        instance.add(peso, pesos);
+        instance.endJson();
+        instance.endArray();
+        instance.addOtherValue();
+        instance.addNullValue("Wola");
+        instance.endJson();
+        String result = "{\"Hijos\":[{\"Nulo\":null,\"Peso\":1.25}],\"Wola\":null}";
+        assertEquals(instance.toString(), result);
     }
     
     /**
@@ -133,10 +145,12 @@ public class JsonTest {
      */
     @Test
     public void testEndArray() {
-        String name = "";
+        String name = "Array Vacio";
         Json instance = new Json();
+        instance.addArrayJson(name);
         instance.endArray();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.endJson();
+        String result = "{\"Array Vacio\":[]}";
+        assertEquals(instance.toString(), result);
     }
 }

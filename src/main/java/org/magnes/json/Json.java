@@ -26,7 +26,7 @@ public class Json {
     }
 
     public void startJson() {this.jsonStrin += Json.KEY_OBJECT_START;}
-    public void endhJson() { this.jsonStrin += Json.KEY_OBJECT_END; }
+    public void endJson() { this.jsonStrin += Json.KEY_OBJECT_END; }
     
     public void add(String name, String value) {
         this.jsonStrin += addString(name) + Json.COLON + addString(value);
@@ -42,20 +42,15 @@ public class Json {
     
     public void add(String name){
         this.jsonStrin += addString(name) + Json.COLON;
-        addNewJson();
+        startJson();
     }
     
     public void addNullValue(String name){
         this.jsonStrin += addString(name) + Json.COLON + Json.NULL;
     }
-
-    private void addNewJson(){
-        this.jsonStrin += Json.KEY_OBJECT_START;
-    }
     
     public void addArrayJson(String name) {
         this.jsonStrin += addString(name) + Json.COLON + Json.KEY_ARRAY_START;
-        startJson();
     }
     
     public void endArray(){
