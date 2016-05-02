@@ -40,7 +40,7 @@ public class JsonTest {
     public void testEndhJson() {
         Json instance = new Json();
         instance.endhJson();
-        String result = "{  }";
+        String result = "{}";
         
         assertEquals(instance.toString(), result);
     }
@@ -50,12 +50,13 @@ public class JsonTest {
      */
     @Test
     public void testAdd_String_String() {
-        String name = "";
-        String value = "";
+        String name = "Saludo";
+        String value = "Hola";
         Json instance = new Json();
         instance.add(name, value);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.endhJson();
+        String result = "{\"Saludo\":\"Hola\"}";
+        assertEquals(instance.toString(), result);
     }
 
     /**
@@ -63,12 +64,13 @@ public class JsonTest {
      */
     @Test
     public void testAdd_String_Integer() {
-        String name = "";
-        Integer value = null;
+        String name = "Edad";
+        Integer value = 25;
         Json instance = new Json();
         instance.add(name, value);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.endhJson();
+        String result = "{\"Edad\":25}";
+        assertEquals(instance.toString(), result);
     }
 
     /**
@@ -76,12 +78,13 @@ public class JsonTest {
      */
     @Test
     public void testAdd_String_Double() {
-        String name = "";
-        Double value = null;
+        String name = "Peso";
+        Double value = 70.2;
         Json instance = new Json();
         instance.add(name, value);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.endhJson();
+        String result = "{\"Peso\":70.2}";
+        assertEquals(instance.toString(), result);
     }
 
     /**
@@ -89,22 +92,28 @@ public class JsonTest {
      */
     @Test
     public void testAddNullValue() {
-        String name = "";
+        String name = "Nulo";
         Json instance = new Json();
         instance.addNullValue(name);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.endhJson();
+        String result = "{\"Nulo\":null}";
+        assertEquals(instance.toString(), result);
     }
 
     /**
-     * Test of addNewJson method, of class Json.
+     * Test of add method, of class Json.
      */
     @Test
-    public void testAddNewJson() {
+    public void testAdd_String() {
+        String name = "Posicion";
         Json instance = new Json();
-        instance.addNewJson();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.add(name);
+        String x = "x";
+        instance.addNullValue(x);
+        instance.endhJson();
+        instance.endhJson();
+        String result = "{\"Posicion\":{\"x\":null}}";
+        assertEquals(instance.toString(), result);
     }
     
     /**
