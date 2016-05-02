@@ -29,32 +29,32 @@ public class Json {
     public void endhJson() { this.jsonStrin += Json.KEY_OBJECT_END; }
     
     public void add(String name, String value) {
-        firstValue();
-        this.jsonStrin += name + Json.COLON + "\"" + value + "\"";
+        this.jsonStrin += addString(name) + Json.COLON + addString(value);
     }
     
     public void add(String name, Integer value){
-        firstValue();
-        this.jsonStrin += name + Json.COLON + value;
+        this.jsonStrin += addString(name) + Json.COLON + value;
     }
     
     public void add(String name, Double value){
-        firstValue();
-        this.jsonStrin += name + Json.COLON + value;
+        this.jsonStrin += addString(name) + Json.COLON + value;
+    }
+    
+    public void add(String name){
+        this.jsonStrin += addString(name) + Json.COLON;
+        addNewJson();
     }
     
     public void addNullValue(String name){
-        firstValue();
-        this.jsonStrin += name + Json.COLON + Json.NULL;
+        this.jsonStrin += addString(name) + Json.COLON + Json.NULL;
     }
 
-    public void addNewJson(){
-        firstValue();
+    private void addNewJson(){
         this.jsonStrin += Json.KEY_OBJECT_START;
     }
     
     public void addArrayJson(String name) {
-        this.jsonStrin += name + Json.COLON + Json.KEY_ARRAY_START;
+        this.jsonStrin += addString(name) + Json.COLON + Json.KEY_ARRAY_START;
         startJson();
     }
     
@@ -62,12 +62,12 @@ public class Json {
         this.jsonStrin += Json.KEY_ARRAY_END;
     }
     
-    private void firstValue() {
-        if (!this.jsonStrin.equalsIgnoreCase(Json.KEY_OBJECT_START)){
-            this.jsonStrin += Json.COMMA;
-        } else {
-            ;
-        }
+    public void addOtherValue() {
+        this.jsonStrin += Json.COMMA;
+    }
+    
+    private String addString(String name){
+        return "\"" + name + "\"";
     }
     
     @Override
