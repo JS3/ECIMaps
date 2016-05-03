@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package eci.edu.arsw.services;
 
 /**
@@ -13,7 +8,17 @@ package eci.edu.arsw.services;
 public class FachadaServicio {
     
     
-    // en construcción
+    private FachadaServicio() {
+    }
+    
+    public static FachadaServicio getInstance() {
+        return FachadaServicioHolder.INSTANCE;
+    }
+    
+    private static class FachadaServicioHolder {
+
+        private static final FachadaServicio INSTANCE = new FachadaServicio();
+    }
     
     
 }
