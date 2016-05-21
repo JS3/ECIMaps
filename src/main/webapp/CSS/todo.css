@@ -9,3 +9,13 @@
     color: mediumvioletred;
     font-size: 40px;
 }
+
+#checklist {
+    width: 20%;
+    float: left;
+}
+
+#mapaMental {
+    width: 80%;
+    float: left;
+}

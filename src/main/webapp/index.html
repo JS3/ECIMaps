@@ -1,15 +1,46 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script type="text/javascript" src="JS/angular.min.js"></script>
+        <script type="text/javascript" src="JS/angular.js" ></script>
+        <script type="text/javascript" src="JS/maps.js"></script>
+
         <title>ECI MAPS</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link rel="stylesheet" type="text/css" href="CSS/todo.css" />
+
     </head>
-    <body>
+
+    <body ng-app="ECIMaps">
+
         <h1 id="titulo" class="titulo"> ωεℓcσмε тσ εcιмαρs </h1>
-        <input type="text" name="nombreMapa" id="nombreMapa"/>
-        <input type="submit" name="buscarMapa" id="buscarMapa" value="Generar/Buscar" />
-        <hr/>
-        
+
+        <div ng-controller="VistaInicial">
+            <div ng-show="Mapa" >
+                <input type="text" name="nombreMapa" id="nombreMapa"
+                       placeholder="Nombre del ECIMap" />
+                <input type="button" name="buscarMapa" id="buscarMapa"
+                       value="Generar/Buscar" ng-click="generarMapa()" />
+            </div>
+
+            <div ng-show="ECIMAP" id="vistaC" class="vistaC">
+                
+                <div id="checklist" class="checklist">
+                    Lista :3
+                </div>
+
+                <div id="mapaMental" class="mapaMental">
+                    <input type="text" name="nombreNodo" id="nombreNodo"
+                           placeholder="Nombre del Nodo" />
+                    <input type="button" name="agregar" id="agregar"
+                           value="+" />
+                    <input type="button" name="eliminar" id="eliminar"
+                           value="-" />
+                </div>
+                
+            </div>
+        </div>
+
     </body>
 </html>
