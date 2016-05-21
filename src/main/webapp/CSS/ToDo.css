@@ -27,7 +27,7 @@ body {
 
 	color: #4d4d4d;
 	min-width: 230px;
-	max-width: 550px;
+	max-width: 450px;
 	margin: 0 auto;
 	-webkit-font-smoothing: antialiased;
 	-moz-font-smoothing: antialiased;
@@ -74,7 +74,7 @@ input[type="checkbox"] {
 	position: absolute;
 	top: -155px;
 	width: 100%;
-	font-size: 100px;
+	font-size: 16px;
 	font-weight: 100;
 	text-align: center;
 	color: rgba(175, 47, 47, 0.15);
@@ -88,7 +88,7 @@ input[type="checkbox"] {
 	position: relative;
 	margin: 0;
 	width: 100%;
-	font-size: 24px;
+	font-size: 16px;
 	font-family: inherit;
 	font-weight: inherit;
 	line-height: 1.4em;
@@ -133,7 +133,7 @@ label[for='toggle-all'] {
 
 #toggle-all:before {
 	content: '❯';
-	font-size: 22px;
+	font-size: 16px;
 	color: #e6e6e6;
 	padding: 10px 27px 10px 27px;
 }
@@ -150,7 +150,7 @@ label[for='toggle-all'] {
 
 #todo-list li {
 	position: relative;
-	font-size: 24px;
+	font-size: 16px;
 	border-bottom: 1px solid #ededed;
 }
 
