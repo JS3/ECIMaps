@@ -4,6 +4,7 @@
         <script type="text/javascript" src="JS/modules/angular.min.js" ></script>
         <script type="text/javascript" src="JS/modules/angular-route.js"></script>
         <script type="text/javascript" src="JS/modules/angular.js"></script>
+        
         <script type="text/javascript" src="JS/controllers/mapsCtrl.js"></script>
 
         <title>ECI MAPS</title>
@@ -21,28 +22,23 @@
             <div ng-show="Mapa" >
                 <input type="text" name="nombreMapa" id="nombreMapa"
                        placeholder="Nombre del ECIMap" />
+                
                 <input type="button" name="buscarMapa" id="buscarMapa"
                        value="Generar/Buscar" ng-click="generarMapa()" />
             </div>
 
+
             <div ng-show="ECIMAP" id="vistaC" class="vistaC">
-                
+                <!-- PARTE IZQUIERDA -->
                 <div id="checklist" class="checklist">
                     <iframe src="ToDo.html" height="530" width="471" frameborder="0" ></iframe>
                 </div>
 
+                <!-- PARTE DERECHA -->
                 <div id="mapaMental" class="mapaMental">
-                    <input type="text" name="nombreNodo" id="nombreNodo"
-                           placeholder="Nombre del Nodo" />
-                    <input type="button" name="agregar" id="agregar"
-                           value="+" />
-                    <input type="button" name="eliminar" id="eliminar"
-                           value="-" />
+                    <iframe src="MapaMental.html" height="700" width="900" frameborder="0" ></iframe>
                 </div>
-                
-                
-                
-            </div>
+            </div> 
         </div>
 
     </body>

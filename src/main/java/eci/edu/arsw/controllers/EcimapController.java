@@ -1,6 +1,6 @@
 package eci.edu.arsw.controllers;
 
-//import eci.edu.arsw.services.FachadaServicio;
+
 //import java.util.List;
 //import java.util.Set;
 //import org.springframework.beans.factory.annotation.Autowired;
@@ -19,15 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Diana Maria del Pilar Socha Diaz
  */
 @RestController
-@RequestMapping("/ECIMap")
+@RequestMapping("/ECIMaps")
 public class EcimapController {
     
-    @RequestMapping(value = "/check", method = RequestMethod.GET)
+    @RequestMapping(value = "/wola", method = RequestMethod.GET)
     public String check() {
         return "REST API ECIMaps OK";
     }
-    
-    
 }
 
 //

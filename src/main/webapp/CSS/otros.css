@@ -19,3 +19,6 @@
     width: auto;
     float: left;
 }
+#mapas {
+    border: 2px solid mediumvioletred;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="CSS/otros.css"/>
+
+        <script type="text/javascript" src="JS/modules/angular.min.js" ></script>
+        <script type="text/javascript" src="JS/modules/angular-route.js"></script>
+        <script type="text/javascript" src="JS/modules/angular.js"></script>
+        <script type="text/javascript" src="JS/controllers/nodos.js"></script>
+
+
+    </head>
+    <body ng-app="ECIMapsNodos">
+
+        <div id="mapaMental" class="mapaMental">
+            <input type="text" name="nombreNodo" id="nombreNodo"
+                   placeholder="Nombre del Nodo" />
+            <input type="text" name="descripcionNodo" id="descripcionNodo"
+                   placeholder="Descripcion del Nodo" />
+            <input type="button" name="agregar" id="agregar"
+                   value="+" />
+            <input type="button" name="eliminar" id="eliminar"
+                   value="-" />
+        </div>
+        <br/><br/>
+
+        <div ng-controller="NodosECIMap" >
+            <canvas id="mapas" width="800" height="530" ></canvas>
+        </div>
+
+
+    </body>
+</html>
