@@ -96,16 +96,16 @@ angular.module('ECIMapsNodos', [])
                     var centro = 48;
                     
                     function dibujarHerencia(Xpadre, Ypadre, Xhijo, Yhijo){
-
+                        var color = getRandomColor();
                         ctx.moveTo(Xpadre,Ypadre);
                         ctx.lineTo(Xhijo,Yhijo);
+                        ctx.strokeStyle = color;
                         ctx.stroke();
                         
                     }
                     
                     function dibujarNodo(X, Y, nombre) {
                         ctx.beginPath();
-                        
                         ctx.arc(X, Y, centro, 0, 2 * Math.PI);
                         ctx.font = "15px Arial";
                         ctx.fillText(nombre, X - centro/2 , Y);
@@ -119,6 +119,15 @@ angular.module('ECIMapsNodos', [])
 //                        ctx.fillRect(0,0,ctx.width,ctx.height);
 //                        ctx.width=ctx.width;
 //                        oContext.clearRect(0, 0, oCanvas.width, oCanvas.height);
+                    }
+                    
+                    function getRandomColor() {
+                        var letters = '0123456789ABCDEF'.split('');
+                        var color = '#';
+                        for (var i = 0; i < 6; i++ ) {
+                            color += letters[Math.floor(Math.random() * 16)];
+                        }
+                    return color;
                     }
                 }
             }
