@@ -4,7 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
+<html ng-app="ECIMapsNodos" >
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
@@ -15,12 +15,13 @@ and open the template in the editor.
         <script type="text/javascript" src="JS/modules/angular-route.js"></script>
         <script type="text/javascript" src="JS/modules/angular.js"></script>
         <script type="text/javascript" src="JS/controllers/nodos.js"></script>
-
+        <script type="text/javascript" src="JS/directives/pintarNodo.js"></script>
 
     </head>
-    <body ng-app="ECIMapsNodos">
+    <body >
 
         <div id="mapaMental" class="mapaMental">
+            <!--
             <input type="text" name="nombreNodo" id="nombreNodo"
                    placeholder="Nombre del Nodo" />
             <input type="text" name="descripcionNodo" id="descripcionNodo"
@@ -29,11 +30,14 @@ and open the template in the editor.
                    value="+" />
             <input type="button" name="eliminar" id="eliminar"
                    value="-" />
+            -->
+            <input type="submit" value="Pintar" name="pintarMapa"
+                   id="intarMapa"/>
         </div>
         <br/><br/>
 
-        <div ng-controller="NodosECIMap" >
-            <canvas id="mapas" width="800" height="530" ></canvas>
+        <div  >
+            <canvas drawing id="mapas" width="800" height="530" ></canvas>
         </div>
 
 

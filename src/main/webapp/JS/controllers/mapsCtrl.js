@@ -7,7 +7,7 @@ angular.module('ECIMaps', [])
             var v = document.getElementById('nombreMapa').value;
 
             if (v === "" || v === " ") {
-                alert("Escriba un nombre profavor");
+                alert("Escriba el nombre del ECIMap por favor");
             } else {
                 $scope.Mapa = false;
                 $scope.ECIMAP = true;

@@ -1,6 +1,6 @@
 angular.module('ECIMapsNodos', [])
         .controller('NodosECIMap', function ($scope, $http) {
-            $scope.JSONMapa = "{}";
+            $scope.JSONMapa = {};
             $scope.MapaBiologia =
             {
             "Nombre": "Mi Biologia",
@@ -10,7 +10,8 @@ angular.module('ECIMapsNodos', [])
                 {
                     "Nombre": "Peces",
                     "Descripcion": "Vertebrado",
-                    "Posicion": {"x": 80,"y": 80 }
+                    "Posicion": {"x": 80,"y": 80 },
+                    "Hijos": []
                 },
                 {
                     "Nombre": "Gusanos",
@@ -20,17 +21,20 @@ angular.module('ECIMapsNodos', [])
                         { 
                             "Nombre": "Anelidos",
                             "Descripcion": "Bilateral",
-                            "Posicion": {"x": 170,"y": 170}
+                            "Posicion": {"x": 170,"y": 170},
+                            "Hijos": []
                         }
                     ]
                 }
             ]
             };
-                    $scope.cargarMapa = function () {
-
-
-
-                    }
+            
+            $scope.cargarMapa = function () {
+                var nombre = document.getElementById('nombreMapa').value;
+                if (nombre === 'MapaBiologia') {
+                    $scope.JSONMapa = $scope.MapaBiologia;
+                }
+            }
 
             $scope.agregarNodis = function () {
 
