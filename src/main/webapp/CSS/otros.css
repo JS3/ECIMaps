@@ -22,3 +22,17 @@
 #mapas {
     border: 2px solid mediumvioletred;
 }
+
+.mapaMental {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+.mapaMental iframe {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
