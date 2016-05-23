@@ -47,6 +47,12 @@ angular.module('ECIMapsNodos', [])
                             ]
                         };
                     
+                    
+                    
+                    element.bind('mousedown', function (event) {
+                        pintarMapa();
+                    });
+                    
                     function pintarMapa(){
                         reset();
                         // Pintar nodo central
@@ -58,18 +64,6 @@ angular.module('ECIMapsNodos', [])
                         hijosMios($scope.JSONMapa.Hijos, $scope.JSONMapa.Posicion);
                     
                     }
-                    
-                    element.bind('mousedown', function (event) {
-//                        reset();
-//                        // Pintar nodo central
-//                        dibujarNodo($scope.JSONMapa.Posicion.x,
-//                                    $scope.JSONMapa.Posicion.y,
-//                                    $scope.JSONMapa.Nombre);
-//
-//                        // Pintar hijos de nodo central
-//                        hijosMios($scope.JSONMapa.Hijos, $scope.JSONMapa.Posicion);
-                        pintarMapa();
-                    });
                     
                     
                     // Pintar los Hijos de los Hijos de los Hijos
@@ -115,10 +109,6 @@ angular.module('ECIMapsNodos', [])
                     // canvas reset
                     function reset() {
                         element[0].width = element[0].width;
-//                        ctx.fillStyle = "#FFF";
-//                        ctx.fillRect(0,0,ctx.width,ctx.height);
-//                        ctx.width=ctx.width;
-//                        oContext.clearRect(0, 0, oCanvas.width, oCanvas.height);
                     }
                     
                     function getRandomColor() {
