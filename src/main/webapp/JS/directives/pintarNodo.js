@@ -1,4 +1,5 @@
 angular.module('ECIMapsNodos', [])
+//angular.module('ECIMaps', [])
         .directive('drawing', function () {
             return {
                 restrict: 'A',
@@ -120,7 +121,7 @@ angular.module('ECIMapsNodos', [])
                     return color;
                     }
                 }
-            }
+            };
         });
 
 

@@ -18,9 +18,9 @@ and open the template in the editor.
         <script type="text/javascript" src="JS/directives/pintarNodo.js"></script>
 
     </head>
-    <body >
+    <body>
 
-        <div id="mapaMental" class="mapaMental">
+        <div id="mapaMental" class="mapaMental" >
             <!--
             <input type="text" name="nombreNodo" id="nombreNodo"
                    placeholder="Nombre del Nodo" />
@@ -31,13 +31,11 @@ and open the template in the editor.
             <input type="button" name="eliminar" id="eliminar"
                    value="-" />
             -->
-            <input type="submit" value="Pintar" name="pintarMapa"
-                   id="intarMapa"/>
-            <br/>
+            <input type="button" value="Biologia" name="JSONBiologia"
+                   id="JSONBiologia" ng-click="wolis()"/>
+            <br/> <br />
             <textarea rows="40" cols="80" placeholder="Mapa JSON"
-                      name="MapaJSON" id="MapaJSON" >
-                {{JSONMapa}}
-            </textarea>
+                      name="MapaJSON" id="MapaJSON" >{{JSONMapa}}</textarea>
         </div>
         <br/><br/>
 

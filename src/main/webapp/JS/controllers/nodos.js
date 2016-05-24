@@ -29,14 +29,19 @@ angular.module('ECIMapsNodos', [])
             ]
             };
             
-            $scope.cargarMapa = function () {
-                var nombre = document.getElementById('nombreMapa').value;
-                if (nombre === 'MapaBiologia') {
-                    $scope.JSONMapa = $scope.MapaBiologia;
-                }
+//            $scope.cargarMapa = function () {
+//                var nombre = document.getElementById('nombreMapa').value;
+//                if (nombre === 'MapaBiologia') {
+//                    $scope.JSONMapa = $scope.MapaBiologia;
+//                }
+//            }
+            
+            $scope.wolis = function () {
+                alert("asdsdfadfg");
             }
-
-            $scope.agregarNodis = function () {
-
+            
+            $scope.cargarMapaBiologia = function () {
+                $scope.JSONMap = $scope.MapaBiologia;
+                document.getElementById('MapaJSON').value = $scope.JSONMap;
             }
         });
