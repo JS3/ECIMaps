@@ -8,7 +8,8 @@ app.controller('ctrlVista', function ($scope) {
     $scope.vistaFinal = false;
     
     alert("¡ADVERTENCIA!\n\n\n\
-Este proyecto es compatible en un 100% con Mozilla Firefox\n");
+Este proyecto es compatible en un 100% con los navebagores\n\
+Google Chrome y Mozilla Firefox\n");
     
     $scope.verCanvasInicio = function () {
         var v = document.getElementById('nombreMapa').value;
