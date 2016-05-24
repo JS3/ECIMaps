@@ -1,45 +1,87 @@
-<!DOCTYPE html>
+
 <html>
     <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="CSS/otros.css"/>
+
+        <script src="JS/ToDoBase.js" type="text/javascript"></script>
+        <script src="JS/modules/angular.js" type="text/javascript"></script>
+        <script src="JS/modules/angular-route.js" type="text/javascript"></script>
+        <script src="JS/ToDo.js" type="text/javascript"></script>
+        <script src="JS/controllers/todoCtrl.js" type="text/javascript"></script>
+        <script src="JS/services/todoStorage.js" type="text/javascript"></script>
+        <script src="JS/directives/todoFocus.js" type="text/javascript"></script>
+        <script src="JS/directives/todoEscape.js" type="text/javascript"></script>
+
         <script type="text/javascript" src="JS/modules/angular.min.js" ></script>
-        <script type="text/javascript" src="JS/modules/angular-route.js"></script>
-        <script type="text/javascript" src="JS/modules/angular.js"></script>
-        
         <script type="text/javascript" src="JS/controllers/mapsCtrl.js"></script>
 
-        <title>ECI MAPS</title>
-
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <link rel="stylesheet" type="text/css" href="CSS/otros.css" />
-
     </head>
-
     <body ng-app="ECIMaps">
-
         <h1 id="titulo" class="titulo"> ღ ωεլcσмε тσ εcιмαρs ღ </h1>
 
-        <div ng-controller="VistaInicial">
-            <div ng-show="Mapa" >
+
+        <div ng-controller="ctrlVista">
+
+
+            <!-- INICIO  -->
+            <div ng-show="vistaInicio" >
                 <input type="text" name="nombreMapa" id="nombreMapa"
                        placeholder="Nombre del ECIMap" />
-                
+
                 <input type="button" name="buscarMapa" id="buscarMapa"
-                       value="Generar/Buscar" ng-click="generarMapa()" />
+                       value="Generar/Buscar" ng-click="verCanvasInicio()" />
             </div>
 
+            <!-- FINAL -->
+            <div ng-show="vistaFinal" id="vistaC" class="vistaC">
 
-            <div ng-show="ECIMAP" id="vistaC" class="vistaC">
-                <!-- PARTE IZQUIERDA -->
-                <div id="checklist" class="checklist">
+                <input type="button" name="verCanvas" id="verCanvas"
+                       value="Canvas" ng-click="verCanvas()" />
+                <input type="button" name="verCheckList" id="verCheckList"
+                       value="Check List" ng-click="verCheckList()" />
+                <input type="button" name="verJSON" id="verJSON"
+                       value="Editar" ng-click="verJSON()" />
+
+                <br/><br/>
+
+                <!-- CHECKLIST -->
+                <div id="checklist" class="checklist" ng-show="vistaCheckList">
+
                     <iframe src="ToDo.html" height="530" width="471" frameborder="0" ></iframe>
+
                 </div>
 
-                <!-- PARTE DERECHA -->
-                <div id="mapaMental" class="mapaMental">
-                    <iframe src="MapaMental.html" height="700" width="1000" frameborder="0" allowfullscreen></iframe>
+                <!-- CANVAS -->
+                <div id="mapaMental" class="mapaMental" ng-show="vistaCanvas">
+                    
+                    <canvas drawing id="mapas" width="1000" height="600" ></canvas>
+
                 </div>
-            </div> 
+
+                <!-- JSON -->
+                <div  id="mapaMental" class="mapaMental" ng-show="vistaJSON" >
+
+                    <input type="button" value="Biologia" name="JSONBiologia"
+                           id="JSONBiologia" ng-click="cargarMapaBiologia()"/>
+                    
+                    <input type="button" value="ECIMaps" name="JSONECIMaps"
+                           id="JSONECIMaps" ng-click="cargarMapaECIMaps()"/>
+                    
+                    <input type="button" value="Universo" name="JSONUniverso"
+                           id="JSONUniverso" ng-click="cargarMapaUniverso()"/>
+                    
+                    <input type="button" value="Cargar Mapa" name="cargarMapita"
+                           id="cargarMapita" ng-click="cargarMapaEditado()" />
+                    <br/> <br />
+                    <textarea rows="40" cols="80" placeholder="Mapa JSON"
+                              name="MapaJSON" id="MapaJSON" >{{MapaInicial}}</textarea>
+
+                </div>
+
+            </div>
         </div>
-
     </body>
 </html>

@@ -1,23 +1,5 @@
 var app = angular.module('ECIMaps', []);
 
-//angular.module('ECIMaps', [])
-//        .controller('VistaInicial', ['$scope', function ($scope) {
-//                $scope.Mapa = true;
-//                $scope.ECIMAP = false;
-//
-//                $scope.generarMapa = function () {
-//                    var v = document.getElementById('nombreMapa').value;
-//
-//                    if (v === "" || v === " ") {
-//                        alert("Escriba el nombre del ECIMap por favor");
-//                    } else {
-//                        $scope.Mapa = false;
-//                        $scope.ECIMAP = true;
-//                    }
-//                };
-//            }
-//        ]);
-
 app.controller('ctrlVista', function ($scope) {
     $scope.vistaInicio = true;
     $scope.vistaCheckList = false;
@@ -31,6 +13,12 @@ app.controller('ctrlVista', function ($scope) {
         if (v === "" || v === " ") {
             alert("Escriba el nombre del ECIMap por favor");
         } else {
+            if (v === "Mapa Biologia") {
+                $scope.cargarMapaBiologia();
+            } else if (v === "Mapa Universo") {
+                $scope.cargarMapaUniverso();
+            }
+
             $scope.verCanvas();
             $scope.vistaInicio = false;
             $scope.vistaFinal = true;
@@ -55,44 +43,189 @@ app.controller('ctrlVista', function ($scope) {
         $scope.vistaJSON = true;
     };
 
-
-    $scope.JSONMapa = {};
-    $scope.MapaBiologia =
-            {
-                "Nombre": "Mi Biologia",
-                "Descripcion": "Tema principal",
-                "Posicion": {"x": 15, "y": 15},
-                "Hijos": [
-                    {
-                        "Nombre": "Peces",
-                        "Descripcion": "Vertebrado",
-                        "Posicion": {"x": 80, "y": 80},
-                        "Hijos": []
-                    },
-                    {
-                        "Nombre": "Gusanos",
-                        "Descripcion": "Invertebrado",
-                        "Posicion": {"x": 100, "y": 100},
-                        "Hijos": [
-                            {
-                                "Nombre": "Anelidos",
-                                "Descripcion": "Bilateral",
-                                "Posicion": {"x": 170, "y": 170},
-                                "Hijos": []
-                            }
-                        ]
-                    }
-                ]
-            };
-
-    $scope.wolis = function () {
-        alert("asdsdfadfg");
-    };
+    MapasBase();
+    $scope.JSONMapa = $scope.ECIMaps;
+    $scope.MapaInicial = JSONtoString();
 
     $scope.cargarMapaBiologia = function () {
-        $scope.JSONMap = $scope.MapaBiologia;
-        document.getElementById('MapaJSON').value = $scope.JSONMap;
+        $scope.JSONMapa = $scope.MapaBiologia;
+        var str = JSONtoString();
+        document.getElementById('MapaJSON').value = str;
     };
+
+    $scope.cargarMapaECIMaps = function () {
+        $scope.JSONMapa = $scope.ECIMaps;
+        var str = JSONtoString();
+        document.getElementById('MapaJSON').value = str;
+    };
+
+    $scope.cargarMapaUniverso = function () {
+        $scope.JSONMapa = $scope.MapaUniverso;
+        var str = JSONtoString();
+        document.getElementById('MapaJSON').value = str;
+    }
+
+    function JSONtoString() {
+        return JSON.stringify($scope.JSONMapa, undefined, 2);
+    }
+
+    function MapasBase() {
+        $scope.ECIMaps = {
+            "Nombre": "ECI MAPS",
+            "Descripcion": "Mapas mentales",
+            "Posicion": {"x": 500, "y": 100},
+            "Hijos": [{
+                    "Nombre": "Autores",
+                    "Descripcion": "ECI",
+                    "Posicion": {"x": 500, "y": 300},
+                    "Hijos": [{
+                            "Nombre": "Juan",
+                            "Descripcion": "Autor",
+                            "Posicion": {"x": 200, "y": 400},
+                            "Hijos": []
+                        }, {
+                            "Nombre": "Diana",
+                            "Descripcion": "Autor",
+                            "Posicion": {"x": 800, "y": 400},
+                            "Hijos": []
+                        }]
+                }]
+        };
+
+        $scope.MapaBiologia = {
+            "Nombre": "Mi Biologia",
+            "Descripcion": "Tema principal",
+            "Posicion": {"x": 70, "y": 70},
+            "Hijos": [{
+                    "Nombre": "Peces",
+                    "Descripcion": "Vertebrado",
+                    "Posicion": {"x": 200, "y": 200},
+                    "Hijos": []
+                }, {
+                    "Nombre": "Gusanos",
+                    "Descripcion": "Invertebrado",
+                    "Posicion": {"x": 400, "y": 70},
+                    "Hijos": [{
+                            "Nombre": "Anelidos",
+                            "Descripcion": "Bilateral",
+                            "Posicion": {"x": 400, "y": 200},
+                            "Hijos": []
+                        }]
+                }]
+        };
+
+        $scope.MapaUniverso = {
+            "Nombre": "Sistema Solar",
+            "Descripcion": "Universo",
+            "Posicion": {"x": 500, "y": 200},
+            "Hijos": [{
+                    "Nombre": "Estrellas",
+                    "Descripcion": "Brillante",
+                    "Posicion": {"x": 250, "y": 100},
+                    "Hijos": [{
+                            "Nombre": "Sol",
+                            "Descripcion": "Nuestro Sol",
+                            "Posicion": {"x": 100, "y": 100},
+                            "Hijos": []
+                        }]
+                }, {
+                    "Nombre": "Planetas",
+                    "Descripcion": "Planetas",
+                    "Posicion": {"x": 250, "y": 300},
+                    "Hijos": [{
+                            "Nombre": "Interiores",
+                            "Descripcion": "",
+                            "Posicion": {"x": 100, "y": 300},
+                            "Hijos": [{
+                                    "Nombre": "Mercurio",
+                                    "Descripcion": "",
+                                    "Posicion": {"x": 50, "y": 400},
+                                    "Hijos": []
+                                }, {
+                                    "Nombre": "Venus",
+                                    "Descripcion": "",
+                                    "Posicion": {"x": 100, "y": 500},
+                                    "Hijos": []
+                                }, {
+                                    "Nombre": "Tierra",
+                                    "Descripcion": "",
+                                    "Posicion": {"x": 200, "y": 400},
+                                    "Hijos": []
+                                }, {
+                                    "Nombre": "Marte",
+                                    "Descripcion": "",
+                                    "Posicion": {"x": 200, "y": 500},
+                                    "Hijos": []
+                                }]
+                        }, {
+                            "Nombre": "Exteriores",
+                            "Descripcion": "",
+                            "Posicion": {"x": 350, "y": 350},
+                            "Hijos": [{
+                                    "Nombre": "Jupiter",
+                                    "Descripcion": "",
+                                    "Posicion": {"x": 300, "y": 450},
+                                    "Hijos": []
+                                }, {
+                                    "Nombre": "Urano",
+                                    "Descripcion": "",
+                                    "Posicion": {"x": 400, "y": 550},
+                                    "Hijos": []
+                                }, {
+                                    "Nombre": "Saturno",
+                                    "Descripcion": "",
+                                    "Posicion": {"x": 450, "y": 450},
+                                    "Hijos": []
+                                }, {
+                                    "Nombre": "Nepturno",
+                                    "Descripcion": "",
+                                    "Posicion": {"x": 500, "y": 350},
+                                    "Hijos": []
+                                }]
+                        }]
+                }, {
+                    "Nombre": "Planetas enanos",
+                    "Descripcion": "Planetas enanos",
+                    "Posicion": {"x": 700, "y": 200},
+                    "Hijos": [{
+                            "Nombre": "Pluton",
+                            "Descripcion": "",
+                            "Posicion": {"x": 700, "y": 85},
+                            "Hijos": []
+                        }, {
+                            "Nombre": "Sedna",
+                            "Descripcion": "",
+                            "Posicion": {"x": 500, "y": 85},
+                            "Hijos": []
+                        }, {
+                            "Nombre": "Eris",
+                            "Descripcion": "",
+                            "Posicion": {"x": 900, "y": 85},
+                            "Hijos": []
+                        }]
+                }, {
+                    "Nombre": "Cuerpos pequeños",
+                    "Descripcion": "Pequeños",
+                    "Posicion": {"x": 700, "y": 350},
+                    "Hijos": [{
+                            "Nombre": "Asteroides",
+                            "Descripcion": "",
+                            "Posicion": {"x": 800, "y": 450},
+                            "Hijos": []
+                        },{
+                            "Nombre": "Cometas",
+                            "Descripcion": "",
+                            "Posicion": {"x": 600, "y": 450},
+                            "Hijos": []
+                        }]
+                }]
+        }
+    }
+
+    $scope.cargarMapaEditado = function () {
+        var jsonMapaEditado = document.getElementById('MapaJSON').value;
+        $scope.JSONMapa = JSON.parse(jsonMapaEditado);
+    }
 
 
 });
@@ -103,49 +236,6 @@ app.directive('drawing', function () {
         link: function ($scope, element) {
 
             var ctx = element[0].getContext('2d');
-
-            $scope.JSONMapa = //$scope.MapaBiologia;
-                    {
-                        "Nombre": "Mi Biologia",
-                        "Descripcion": "Tema principal",
-                        "Posicion": {"x": 70, "y": 70},
-                        "Hijos": [
-                            {
-                                "Nombre": "Peces",
-                                "Descripcion": "Vertebrado",
-                                "Posicion": {"x": 200, "y": 200},
-                                "Hijos": []
-                            },
-                            {
-                                "Nombre": "Gusanos",
-                                "Descripcion": "Invertebrado",
-                                "Posicion": {"x": 400, "y": 70},
-                                "Hijos": [
-                                    {
-                                        "Nombre": "Anelidos",
-                                        "Descripcion": "Bilateral",
-                                        "Posicion": {"x": 480, "y": 480},
-                                        "Hijos": [
-                                            {
-                                                "Nombre": "Algo muy raro",
-                                                "Descripcion": "Rarisimo",
-                                                "Posicion": {"x": 680, "y": 480},
-                                                "Hijos": []
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "Nombre": "Otra cosa rara",
-                                        "Descripcion": "Algo raro",
-                                        "Posicion": {"x": 180, "y": 480},
-                                        "Hijos": []
-                                    }
-                                ]
-                            }
-                        ]
-                    };
-
-
 
             element.bind('mousedown', function (event) {
                 pintarMapa();

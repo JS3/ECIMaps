@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="JS/modules/angular.min.js" ></script>
+        <script type="text/javascript" src="JS/modules/angular-route.js"></script>
+        <script type="text/javascript" src="JS/modules/angular.js"></script>
+        
+        <script type="text/javascript" src="JS/controllers/mapsCtrl.js"></script>
+
+        <title>ECI MAPS</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link rel="stylesheet" type="text/css" href="CSS/otros.css" />
+
+    </head>
+
+    <body ng-app="ECIMaps">
+
+        <h1 id="titulo" class="titulo"> ღ ωεլcσмε тσ εcιмαρs ღ </h1>
+
+        <div ng-controller="VistaInicial">
+            <div ng-show="Mapa" >
+                <input type="text" name="nombreMapa" id="nombreMapa"
+                       placeholder="Nombre del ECIMap" />
+                
+                <input type="button" name="buscarMapa" id="buscarMapa"
+                       value="Generar/Buscar" ng-click="generarMapa()" />
+            </div>
+
+
+            <div ng-show="ECIMAP" id="vistaC" class="vistaC">
+                <!-- PARTE IZQUIERDA -->
+                <div id="checklist" class="checklist">
+                    <iframe src="ToDo.html" height="530" width="471" frameborder="0" ></iframe>
+                </div>
+
+                <!-- PARTE DERECHA -->
+                <div id="mapaMental" class="mapaMental">
+                    <iframe src="MapaMental.html" height="700" width="1000" frameborder="0" ></iframe>
+                </div>
+            </div> 
+        </div>
+
+    </body>
+</html>
