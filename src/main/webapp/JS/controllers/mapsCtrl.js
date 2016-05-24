@@ -6,7 +6,10 @@ app.controller('ctrlVista', function ($scope) {
     $scope.vistaCanvas = false;
     $scope.vistaJSON = false;
     $scope.vistaFinal = false;
-
+    
+    alert("¡ADVERTENCIA!\n\n\n\
+Este proyecto es compatible en un 100% con Mozilla Firefox\n");
+    
     $scope.verCanvasInicio = function () {
         var v = document.getElementById('nombreMapa').value;
 
@@ -212,7 +215,7 @@ app.controller('ctrlVista', function ($scope) {
                             "Descripcion": "",
                             "Posicion": {"x": 800, "y": 450},
                             "Hijos": []
-                        },{
+                        }, {
                             "Nombre": "Cometas",
                             "Descripcion": "",
                             "Posicion": {"x": 600, "y": 450},
@@ -226,7 +229,13 @@ app.controller('ctrlVista', function ($scope) {
         var jsonMapaEditado = document.getElementById('MapaJSON').value;
         $scope.JSONMapa = JSON.parse(jsonMapaEditado);
     }
-
+    
+    $scope.limpiarEditadoMapas = function () {
+        
+        $scope.JSONMapa = {};
+        var str = JSONtoString();
+        document.getElementById('MapaJSON').value = str;
+    }
 
 });
 

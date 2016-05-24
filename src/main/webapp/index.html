@@ -17,7 +17,26 @@
 
         <script type="text/javascript" src="JS/modules/angular.min.js" ></script>
         <script type="text/javascript" src="JS/controllers/mapsCtrl.js"></script>
+        <!--
+        <script type="text/javascript" src="JS/sockjs.js" ></script>
+        <script type="text/javascript" src="JS/stomp.js"></script>
 
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://" + location.host + "/ECI/");
+            // get text view and button for submitting the message
+            var textsend = document.getElementById("MapaJSON");
+            //Handling the click event
+            function enviar() {
+                // Send the data
+                socket.send(textsend.value);
+            }
+
+            submitMsgonmessage = function (event) {
+                console.log(event.data);
+                textsend.value = event.data;
+            }
+        </script>
+        -->
     </head>
     <body ng-app="ECIMaps">
         <h1 id="titulo" class="titulo"> ღ ωεլcσмε тσ εcιмαρs ღ </h1>
@@ -50,13 +69,13 @@
                 <!-- CHECKLIST -->
                 <div id="checklist" class="checklist" ng-show="vistaCheckList">
 
-                    <iframe src="ToDo.html" height="530" width="471" frameborder="0" ></iframe>
+                    <iframe src="ToDo.html" height="530" width="1000" frameborder="0" ></iframe>
 
                 </div>
 
                 <!-- CANVAS -->
                 <div id="mapaMental" class="mapaMental" ng-show="vistaCanvas">
-                    
+
                     <canvas drawing id="mapas" width="1000" height="600" ></canvas>
 
                 </div>
@@ -66,15 +85,20 @@
 
                     <input type="button" value="Biologia" name="JSONBiologia"
                            id="JSONBiologia" ng-click="cargarMapaBiologia()"/>
-                    
+
                     <input type="button" value="ECIMaps" name="JSONECIMaps"
                            id="JSONECIMaps" ng-click="cargarMapaECIMaps()"/>
-                    
+
                     <input type="button" value="Universo" name="JSONUniverso"
                            id="JSONUniverso" ng-click="cargarMapaUniverso()"/>
-                    
+
                     <input type="button" value="Cargar Mapa" name="cargarMapita"
-                           id="cargarMapita" ng-click="cargarMapaEditado()" />
+                           id="cargarMapita" ng-click="cargarMapaEditado()"
+                           onclick="enviar()"/>
+
+                    <input type="button" value="Limpiar Mapa" name="limpiarMapa"
+                           id="limbpiarMapa" ng-click="limpiarEditadoMapas()" />
+
                     <br/> <br />
                     <textarea rows="40" cols="80" placeholder="Mapa JSON"
                               name="MapaJSON" id="MapaJSON" >{{MapaInicial}}</textarea>
